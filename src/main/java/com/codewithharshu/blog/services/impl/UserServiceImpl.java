@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto updateUser(UserDto userDto, Integer userId) {
-		
+		//Application is not running bcoz of this error
 		User user = (User) this.userRepo.findById(userId)
 					.orElseThrow(()->new ResourceNotFoundException("user","id",userId));
 		
