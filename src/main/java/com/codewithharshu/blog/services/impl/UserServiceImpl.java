@@ -10,7 +10,9 @@ import com.codewithharshu.blog.exceptions.ResourceNotFoundException;
 import com.codewithharshu.blog.payloads.UserDto;
 import com.codewithharshu.blog.repositories.UserRepository;
 import com.codewithharshu.blog.services.UserService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -28,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDto updateUser(UserDto userDto, Integer userId) {
 		//Application error1
-		User user = (User) this.userRepo.findById(userId)
+		User user = this.userRepo.findById(userId)
 					.orElseThrow(()->new ResourceNotFoundException("user","id",userId));
 		
 		return null;
